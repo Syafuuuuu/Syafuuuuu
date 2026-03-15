@@ -1,0 +1,122 @@
+.section {
+  min-height: 100vh;
+  padding: 100px 10%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
+
+.content {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section-title {
+  color: var(--accent);
+}
+
+.pillars {
+  display: flex;
+  gap: 40px;
+}
+
+.pillar {
+  flex: 1;
+}
+
+.pipeline {
+  display: flex;
+  gap: 30px;
+}
+
+.pillar,
+.pipeline-step,
+.timeline-event {
+  background: #151c33;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.pipeline-step {
+  flex: 1;
+}
+
+.gallery {
+  display: flex;
+  gap: 20px;
+}
+
+.photo {
+  width: 250px;
+  height: 300px;
+
+  background: #1b2340;
+  border-radius: 8px;
+}
+
+.timeline-container {
+  display: flex;
+  gap: 40px;
+}
+
+.timeline-event {
+  flex: 1;
+}
+
+.contact-links a {
+  margin-right: 20px;
+}
+
+body {
+  margin: 0;
+
+  background: #0a0f1f;
+  color: #e6eaf2;
+
+  font-family: Arial, sans-serif;
+}
+
+.hero {
+  background: transparent;
+}
+
+.mindset {
+  background: #0d1326;
+}
+
+.systems {
+  background: #0a0f1f;
+}
+
+.data-beauty {
+  background: #0d1326;
+}
+
+.visual-thinking {
+  background: #0a0f1f;
+}
+
+.timeline {
+  background: #0d1326;
+}
+
+.contact {
+  background: #0a0f1f;
+}
+
+:root {
+  --accent: #00e5ff;
+}
+
+#neural-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  z-index: -10;
+}
