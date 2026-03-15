@@ -12,8 +12,31 @@ let mouse = {
     y: null
 };
 
-const particleCount = 80;
+const particleCount = window.innerWidth /15;
 const connectionDistance = 140;
+
+let nodeColor = "#00E5FF";
+let signalColor = "#7B61FF";
+let connectionColor = "rgba(228, 228, 228, 0.49)";
+
+function setNeuralTheme(theme){
+
+    if(theme === "data"){
+        nodeColor = "#00E5FF";
+        signalColor = "#00A2FF";
+    }
+
+    if(theme === "ai"){
+        nodeColor = "#7B61FF";
+        signalColor = "#FF4DFF";
+    }
+
+    if(theme === "art"){
+        nodeColor = "#FFD166";
+        signalColor = "#FF8C42";
+    }
+
+}
 
 class Particle{
     constructor(){
@@ -37,7 +60,7 @@ class Particle{
     draw(){
         ctx.beginPath();
         ctx.arc(this.x,this.y,this.radius,0,Math.PI*2);
-        ctx.fillStyle="#00E5FF";
+        ctx.fillStyle=nodeColor;
         ctx.fill();
     }
 }
@@ -61,13 +84,23 @@ function connectParticles(){
 
             if(distance < connectionDistance){
 
-                ctx.strokeStyle = "rgba(0,229,255,0.15)";
-                ctx.lineWidth = 1;
+                ctx.strokeStyle = connectionColor;
+                ctx.lineWidth = 1 - distance/connectionDistance;
 
                 ctx.beginPath();
                 ctx.moveTo(particles[a].x,particles[a].y);
                 ctx.lineTo(particles[b].x,particles[b].y);
                 ctx.stroke();
+
+                // occasionally send a signal
+                if(signals.length < 50 && Math.random() < 0.002){
+
+                    signals.push(
+                        new Signal(particles[a],particles[b])
+                    );
+
+                }
+
             }
         }
     }
@@ -86,7 +119,7 @@ function connectMouse(){
 
         if(distance < 160){
 
-            ctx.strokeStyle = "rgba(0,229,255,0.3)";
+            ctx.strokeStyle = connectionColor;
 
             ctx.beginPath();
             ctx.moveTo(p.x,p.y);
@@ -107,6 +140,17 @@ function animate(){
 
     connectParticles();
     connectMouse();
+
+    signals.forEach((s,index)=>{
+
+        s.update();
+        s.draw();
+
+        if(s.progress >= 1){
+            signals.splice(index,1);
+        }
+
+    });
 
     requestAnimationFrame(animate);
 }
@@ -146,7 +190,7 @@ gsap.from(".tagline", {
 });
 
 // Section animations
-gsap.utils.toArray(".section").forEach(section => {
+gsap.utils.toArray(".section:not(#mindset):not(#systems)").forEach(section => {
 
     gsap.from(section, {
         opacity: 0,
@@ -156,6 +200,7 @@ gsap.utils.toArray(".section").forEach(section => {
         scrollTrigger: {
             trigger: section,
             start: "top 80%",
+            once:true
         }
 
     });
@@ -163,32 +208,45 @@ gsap.utils.toArray(".section").forEach(section => {
 });
 
 // Mindset pillars animation
-gsap.from(".pillar", {
+gsap.utils.toArray("#mindset .pillar").forEach((pillar, i) => {
 
-    scrollTrigger: {
-        trigger: "#mindset",
-        start: "top 70%",
-    },
+    gsap.from(pillar, {
 
-    opacity: 0,
-    y: 60,
-    duration: 1,
-    stagger: 0.3
+        opacity:0,
+        y:60,
+        duration:1,
+
+        delay: i * 0.25,
+
+        scrollTrigger:{
+            trigger:"#mindset",
+            start:"top 75%",
+            once:true
+        }
+
+    });
+
 });
 
 // Pipeline steps animation
 
-gsap.from(".pipeline-step", {
+gsap.utils.toArray("#systems .pipeline-step").forEach((step, i) => {
 
-    scrollTrigger: {
-        trigger: "#systems",
-        start: "top 70%"
-    },
+    gsap.from(step, {
 
-    opacity: 0,
-    x: -80,
-    duration: 1,
-    stagger: 0.3
+        opacity:0,
+        x:-80,
+        duration:1,
+
+        delay: i * 0.25,
+
+        scrollTrigger:{
+            trigger:"#systems",
+            start:"top 75%",
+            once:true
+        }
+
+    });
 
 });
 
@@ -209,6 +267,61 @@ gsap.utils.toArray(".section").forEach(section => {
     });
 
 });
+
+// Neural theme change on section enter
+
+ScrollTrigger.create({
+    trigger: "#mindset",
+    start: "top center",
+    onEnter: () => setNeuralTheme("data")
+});
+
+ScrollTrigger.create({
+    trigger: "#systems",
+    start: "top center",
+    onEnter: () => setNeuralTheme("ai")
+});
+
+ScrollTrigger.create({
+    trigger: "#gallery",
+    start: "top center",
+    onEnter: () => setNeuralTheme("art")
+});
+
+
+// Signal animation
+
+let signals = [];
+
+class Signal{
+
+    constructor(start, end){
+
+        this.start = start;
+        this.end = end;
+
+        this.progress = 0;
+
+        this.speed = 0.01 + Math.random()*0.02;
+    }
+
+    update(){
+        this.progress += this.speed;
+    }
+
+    draw(){
+
+        let x = this.start.x + (this.end.x - this.start.x) * this.progress;
+        let y = this.start.y + (this.end.y - this.start.y) * this.progress;
+
+        ctx.beginPath();
+        ctx.arc(x,y,2.5,0,Math.PI*2);
+        ctx.fillStyle = signalColor;
+        ctx.fill();
+
+    }
+
+}
 
 // Initialize particles and start animation
 
