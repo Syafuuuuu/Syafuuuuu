@@ -1,74 +1,73 @@
 # Syafuuuuu
 
-A personal portfolio website for Muhd Syafiq, focused on data science, artificial intelligence, automation, and visual thinking.
+A personal interactive archive for Muhd Syafiq: a tactile studio console for photographs, field notes, references, and fragments of daily life.
 
 ## Tech Stack
 
-- Python
-- FastAPI
-- Uvicorn
-- Jinja2 server-side templates
+- React
+- Vite
+- JavaScript / JSX
 - HTML5
 - CSS3
-- Vanilla JavaScript
-- GSAP 3.12.2 and ScrollTrigger for animations
-- HTML Canvas for the interactive neural-network background
-- Google Fonts: Orbitron and Inter
+- Python, FastAPI, and Uvicorn are retained as a backend foundation for future APIs or content services.
+- Google Fonts: DM Serif Display, Manrope, and DM Mono
 
-The project uses a lightweight server-rendered architecture. It does not currently use a database, frontend framework, ORM, Node.js, TypeScript, or a frontend build system.
+The public site is a static React/Vite build deployed to GitHub Pages. The interface uses traditional CSS for its tactile surfaces, material cues, responsive layout, and physical control feedback.
 
 ## Project Structure
 
 ```text
+src/
+├── App.jsx                 # React archive composition and state
+├── archive.js              # Archive data and channel definitions
+└── main.jsx                # React entry point
 app/
-├── main.py                 # FastAPI application setup
-├── routes/
-│   └── pages.py            # Page routes
-├── static/
-│   ├── css/
-│   │   └── styles.css      # Site styles
-│   └── js/
-│       └── main.js         # Canvas and GSAP interactions
-└── templates/
-    ├── base.html           # Shared HTML layout
-    └── index.html          # Portfolio page
+├── main.py                 # FastAPI foundation for future backend work
+└── static/css/styles.css   # Shared tactile visual system
+public/
+└── favicon.svg             # Studio-console favicon
+.github/workflows/pages.yml # GitHub Pages deployment
 ```
 
 ## How It Works
 
-`app/main.py` creates the FastAPI application, serves static files from `app/static`, configures Jinja2 templates, and registers the page router.
+`src/App.jsx` owns the interactive archive experience. React state controls the active channel, featured archive item, tuning dial, and live local-time readout.
 
-`app/routes/pages.py` exposes the `GET /` route and renders `index.html`. The templates provide the server-rendered HTML structure, while CSS and vanilla JavaScript provide the visual design, responsive layout, canvas animation, mouse interaction, and scroll-based GSAP animations.
+The visual language remains intentionally CSS-led: raised and recessed surfaces, warm materials, analogue labels, indicators, and responsive proportions create the tactile studio-console feel.
 
 ## Setup
 
-Create and activate a virtual environment, then install the dependencies:
+Install the frontend dependencies:
 
 ```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
+npm install
 ```
 
-Start the development server from the repository root:
+Start the React development server:
 
 ```powershell
-uvicorn app.main:app --reload
+npm run dev
 ```
 
-Open [http://127.0.0.1:8000/](http://127.0.0.1:8000/) in a browser.
+Build the production site:
+
+```powershell
+npm run build
+```
+
+The generated static site is written to `dist/`. GitHub Actions builds and deploys it automatically on pushes to `main`.
 
 ## Project Status
 
-- Single server-rendered portfolio page
-- Dependencies are currently unpinned in `requirements.txt`
+- Interactive React archive homepage
+- Dependencies are locked in `package-lock.json`
 - No automated tests or linting configuration is currently included
-- No database or external application API is currently configured
+- No database or content API is currently configured
 
 ## LLM Context
 
-This is a small Python FastAPI portfolio website. The backend uses FastAPI and Uvicorn, with Jinja2 for server-side HTML rendering. Routes are in `app/routes/pages.py`; the main application setup is in `app/main.py`.
+This is a React/Vite interactive creative archive. The public frontend is in `src/`, with the main composition and state in `src/App.jsx` and archive data in `src/archive.js`.
 
-The frontend uses Jinja2 HTML templates, plain CSS, and vanilla JavaScript. GSAP and ScrollTrigger are loaded from cdnjs. Orbitron and Inter are loaded from Google Fonts. The interactive neural-network background is rendered with HTML Canvas.
+The tactile visual system is in `app/static/css/styles.css` and is imported into the React entry point. The interface uses React state for archive navigation, featured-piece cycling, dial feedback, active channels, and the clock.
 
-When modifying this project, preserve the existing FastAPI plus Jinja2 architecture unless a requirement explicitly calls for a different framework. There is currently no React, Vue, TypeScript, Node.js, ORM, database, test suite, or frontend build tooling.
+When modifying this project, preserve the CSS-led studio-console direction. Add new content as data-driven archive entries where possible, and keep interactions meaningful, tactile, keyboard-accessible, and usable on touch devices. GitHub Pages deploys the Vite output from `dist/`; FastAPI is reserved for future dynamic backend capabilities.
