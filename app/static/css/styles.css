@@ -123,6 +123,23 @@ h1 { max-width: 620px; margin-bottom: 0; color: var(--metal-light); font-size: c
 .footer-links a { text-decoration: none; }
 .footer-links a:hover, .text-link:hover { color: var(--signal); }
 
+@media (min-width: 861px) {
+  .site-shell { padding-top: 20px; }
+  .console-header { min-height: 38px; padding-bottom: 14px; }
+  .console { display: flex; flex-direction: column; height: calc(100svh - 112px); min-height: 650px; margin-top: 18px; }
+  .console__topline, .console__bottomline { min-height: 25px; }
+  .console__body { flex: 1; min-height: 0; padding: 10px 0 12px; }
+  .console-nav, .console-stage { padding: 17px; }
+  .console-stage { display: flex; flex-direction: column; }
+  .stage-heading { margin-bottom: 14px; }
+  h1 { font-size: clamp(2.2rem, 3.7vw, 3.8rem); }
+  .featured-piece { display: flex; flex: 1; min-height: 0; flex-direction: column; }
+  .featured-piece__image { flex: 1; min-height: 0; }
+  .featured-piece__caption { flex: 0 0 auto; padding: 13px 17px 15px; }
+  .featured-piece__caption h2 { font-size: clamp(1.35rem, 2.2vw, 2.1rem); }
+  .console-controls { flex: 0 0 auto; padding-top: 15px; }
+}
+
 @media (max-width: 860px) {
   .console__body, .lower-deck { grid-template-columns: 1fr; }
   .console-nav { padding: 17px; }
