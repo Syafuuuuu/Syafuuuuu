@@ -1,197 +1,156 @@
 {% extends "base.html" %}
 
 {% block content %}
+<main class="site-shell">
+    <header class="console-header">
+        <a class="brand-mark" href="#top" aria-label="Syafiq studio archive home">
+            <span class="brand-mark__light" aria-hidden="true"></span>
+            <span>SYAFIQ / STUDIO ARCHIVE</span>
+        </a>
+        <div class="header-readout">
+            <span class="readout-dot" aria-hidden="true"></span>
+            <span id="clock">LOCAL TIME --:--</span>
+        </div>
+    </header>
 
-<!-- HERO / SYSTEM INITIALIZATION -->
-
-<section id="hero" class="section hero">
-
-    <div class="content">
-        <p class="system-text">Initializing System...</p>
-
-        <h1 class="title">
-            Muhd Syafiq
-        </h1>
-
-        <p class="subtitle">
-            Junior Data Scientist
-        </p>
-
-        <p class="tagline">
-            Exploring Intelligence Through Data
-        </p>
-    </div>
-
-</section>
-
-
-<!-- MINDSET -->
-
-<section id="mindset" class="section mindset">
-
-    <div class="content">
-
-        <h2 class="section-title">The Mindset</h2>
-
-        <div class="pillars">
-
-            <div class="pillar">
-                <h3>DATA</h3>
-                <p>
-                    Patterns. Signals. Outliers. Exploration.
-                </p>
-            </div>
-
-            <div class="pillar">
-                <h3>AI</h3>
-                <p>
-                    Decision systems, automation and intelligence.
-                </p>
-            </div>
-
-            <div class="pillar">
-                <h3>ART</h3>
-                <p>
-                    Photography, illustration and visual thinking.
-                </p>
-            </div>
-
+    <section class="console" id="top" aria-labelledby="console-title">
+        <div class="console__topline">
+            <span class="eyebrow">PERSONAL FREQUENCY / 001</span>
+            <span class="eyebrow">FIELD NOTES + PHOTOGRAPHS</span>
         </div>
 
-    </div>
+        <div class="console__body">
+            <aside class="console-nav" aria-label="Archive navigation">
+                <p class="panel-label">SELECT CHANNEL</p>
+                <nav class="channel-list">
+                    <a class="channel is-active" href="#featured" data-channel="01">
+                        <span class="channel__number">01</span>
+                        <span class="channel__name">Featured</span>
+                        <span class="channel__indicator" aria-hidden="true"></span>
+                    </a>
+                    <a class="channel" href="#photographs" data-channel="02">
+                        <span class="channel__number">02</span>
+                        <span class="channel__name">Photographs</span>
+                        <span class="channel__indicator" aria-hidden="true"></span>
+                    </a>
+                    <a class="channel" href="#notes" data-channel="03">
+                        <span class="channel__number">03</span>
+                        <span class="channel__name">Field notes</span>
+                        <span class="channel__indicator" aria-hidden="true"></span>
+                    </a>
+                    <a class="channel" href="#likes" data-channel="04">
+                        <span class="channel__number">04</span>
+                        <span class="channel__name">Things I like</span>
+                        <span class="channel__indicator" aria-hidden="true"></span>
+                    </a>
+                    <a class="channel" href="#about" data-channel="05">
+                        <span class="channel__number">05</span>
+                        <span class="channel__name">About</span>
+                        <span class="channel__indicator" aria-hidden="true"></span>
+                    </a>
+                </nav>
 
-</section>
+                <div class="console-nav__footer">
+                    <span class="panel-label">SIGNAL</span>
+                    <span class="signal-meter" aria-label="Signal strength: good">
+                        <i></i><i></i><i></i><i></i><i></i>
+                    </span>
+                </div>
+            </aside>
 
+            <div class="console-stage">
+                <div class="stage-heading">
+                    <div>
+                        <p class="panel-label">NOW PLAYING</p>
+                        <h1 id="console-title">A room for looking closely.</h1>
+                    </div>
+                    <div class="counter-readout" aria-label="Archive item 01 of 12">
+                        <span>ARCHIVE</span>
+                        <strong>01</strong><small>/ 12</small>
+                    </div>
+                </div>
 
-<!-- SYSTEMS -->
+                <article class="featured-piece" id="featured">
+                    <div class="featured-piece__image" role="img" aria-label="A quiet room with morning light"></div>
+                    <div class="featured-piece__caption">
+                        <div>
+                            <span class="piece-tag">IMAGE / 001</span>
+                            <h2>Morning light, borrowed room</h2>
+                        </div>
+                        <p>Somewhere between leaving and staying, the room became the subject.</p>
+                    </div>
+                </article>
 
-<section id="systems" class="section systems">
-
-    <div class="content">
-
-        <h2 class="section-title">Systems I Build</h2>
-
-        <div class="pipeline">
-
-            <div class="pipeline-step">
-                <h3>Data</h3>
-                <p>Exploration and pattern discovery</p>
+                <div class="console-controls" aria-label="Featured piece controls">
+                    <button class="tactile-button" type="button" data-action="previous" aria-label="Previous archive item">← <span>PREV</span></button>
+                    <div class="dial-control">
+                        <span class="dial-control__label">TUNE</span>
+                        <button class="dial" type="button" data-action="tune" aria-label="Tune archive item"><span></span></button>
+                    </div>
+                    <button class="tactile-button" type="button" data-action="next" aria-label="Next archive item"><span>NEXT</span> →</button>
+                </div>
             </div>
-
-            <div class="pipeline-step">
-                <h3>Processing</h3>
-                <p>Cleaning, transformation and engineering</p>
-            </div>
-
-            <div class="pipeline-step">
-                <h3>AI Models</h3>
-                <p>Chatbots, screening systems and automation</p>
-            </div>
-
-            <div class="pipeline-step">
-                <h3>Decisions</h3>
-                <p>Insights, flagging systems and intelligent workflows</p>
-            </div>
-
         </div>
 
-    </div>
-
-</section>
-
-
-<!-- DATA BEAUTY -->
-
-<section id="data-beauty" class="section data-beauty">
-
-    <div class="content">
-
-        <h2 class="section-title">The Beauty of Data</h2>
-
-        <p class="section-description">
-            Data is not just numbers. It is structure waiting to be discovered.
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- VISUAL THINKING -->
-
-<section id="visual-thinking" class="section visual-thinking">
-
-    <div class="content">
-
-        <h2 class="section-title">Visual Thinking</h2>
-
-        <p class="section-description">
-            Observation is the first step of intelligence.
-        </p>
-
-        <div class="gallery">
-
-            <div class="photo">Photo 1</div>
-            <div class="photo">Photo 2</div>
-            <div class="photo">Photo 3</div>
-
+        <div class="console__bottomline">
+            <span>VOLUME <b aria-hidden="true">━━━</b> LOW</span>
+            <span>UNIT 001 / ANALOGUE MODE</span>
+            <span>EST. 2026</span>
         </div>
+    </section>
 
-    </div>
-
-</section>
-
-
-<!-- TIMELINE -->
-
-<section id="timeline" class="section timeline">
-
-    <div class="content">
-
-        <h2 class="section-title">Training the Model</h2>
-
-        <div class="timeline-container">
-
-            <div class="timeline-event">
-                <h3>University</h3>
-                <p>Simulation modelling and analytical foundations</p>
+    <section class="archive-preview" id="photographs" aria-labelledby="photographs-title">
+        <div class="section-heading">
+            <div>
+                <span class="eyebrow">02 / IMAGE BANK</span>
+                <h2 id="photographs-title">Collected light</h2>
             </div>
-
-            <div class="timeline-event">
-                <h3>Internship</h3>
-                <p>First exposure to real-world data systems</p>
-            </div>
-
-            <div class="timeline-event">
-                <h3>Junior Data Scientist</h3>
-                <p>Building AI powered automation systems</p>
-            </div>
-
+            <p>Photographs, contact sheets, and scenes that stayed with me.</p>
         </div>
+        <div class="contact-sheet">
+            <article class="contact-sheet__item contact-sheet__item--large">
+                <div class="photo-placeholder photo-placeholder--green" role="img" aria-label="Trees seen through a window"></div>
+                <span>AFTERNOON / 01</span>
+            </article>
+            <article class="contact-sheet__item">
+                <div class="photo-placeholder photo-placeholder--rust" role="img" aria-label="A red object in soft light"></div>
+                <span>OBJECT / 02</span>
+            </article>
+            <article class="contact-sheet__item">
+                <div class="photo-placeholder photo-placeholder--blue" role="img" aria-label="A blue evening sky"></div>
+                <span>EVENING / 03</span>
+            </article>
+        </div>
+    </section>
 
-    </div>
+    <section class="lower-deck" id="notes">
+        <article class="note-panel">
+            <span class="eyebrow">03 / FIELD NOTE</span>
+            <p class="note-panel__date">MARCH 08, 2026 / 08:14</p>
+            <h2>Keep the imperfect edges.</h2>
+            <p>There is a particular pleasure in the parts of an object that reveal how it was made: the seam, the thumbprint, the uneven line. I am trying to leave more of that in the work.</p>
+            <a class="text-link" href="#">Read the note <span aria-hidden="true">↗</span></a>
+        </article>
+        <aside class="likes-panel" id="likes">
+            <span class="eyebrow">04 / CURRENT ROTATION</span>
+            <ul>
+                <li><span>01</span> Books with generous margins</li>
+                <li><span>02</span> Late-night radio</li>
+                <li><span>03</span> Objects that show their age</li>
+            </ul>
+        </aside>
+    </section>
 
-</section>
-
-
-<!-- CONTACT -->
-
-<section id="contact" class="section contact">
-
-    <div class="content">
-
-        <h2 class="section-title">Let's Build Intelligent Systems</h2>
-
-        <div class="contact-links">
-
-            <a href="#">LinkedIn</a>
-            <a href="#">GitHub</a>
+    <footer class="site-footer" id="about">
+        <div>
+            <span class="eyebrow">05 / ABOUT THE OPERATOR</span>
+            <p>I am Syafiq. I make images, collect references, and write down the things I do not want to forget.</p>
+        </div>
+        <div class="footer-links">
+            <a href="#">Instagram</a>
             <a href="#">Email</a>
-
+            <a href="#top">Back to top ↑</a>
         </div>
-
-    </div>
-
-</section>
-
+    </footer>
+</main>
 {% endblock %}
